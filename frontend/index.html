@@ -23,11 +23,42 @@
         <form action="/predict" method="POST">
             <div class="form-group">
                 <label for="exampleInputEmail1">Input all medical features for Breast Cancer</label>
-                <input type="text" name="feature" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" name="feature" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp">
 
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+
+        {% for i in message %}
+        {% if i == "CANCEROUS" %}
+
+        <div class="card" style="width: 18rem;">
+            <img src{{url_for('static', filename='image1.jpeg')}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">CANCEROUS</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+
+        {% else %}
+
+        <div class="card" style="width: 18rem;">
+            <img src{{url_for('static', filename='image2.jpeg')}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">NON - CANCEROUS</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+
+
+
+        {%endif}
+        {%endfor}
 
 
 
